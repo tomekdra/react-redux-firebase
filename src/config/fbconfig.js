@@ -4,7 +4,6 @@ import 'firebase/auth'
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-
     authDomain: "react-redux-firebase-950e0.firebaseapp.com",
     databaseURL: "https://react-redux-firebase-950e0.firebaseio.com",
     projectId: "react-redux-firebase-950e0",
