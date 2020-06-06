@@ -16,8 +16,7 @@ import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
 import fbConfig from "./config/fbconfig";
 import firebase from "firebase/app";
 import { useSelector  } from 'react-redux'
-import { isLoaded  } from 'react-redux-firebase';
-
+import { isLoaded } from 'react-redux-firebase';
 
 const store = createStore(
     rootReducer,
@@ -27,12 +26,17 @@ const store = createStore(
     )
 );
 
+const profiles = {
+    userProfile: 'users',
+    useFirestoreForProfile: true,
+}
 
 const rrfProps = {
     firebase,
-    config: fbConfig,
+    config: profiles,
     dispatch: store.dispatch,
-    createFirestoreInstance
+    createFirestoreInstance,
+
 };
 
 function AuthIsLoaded({ children }) {

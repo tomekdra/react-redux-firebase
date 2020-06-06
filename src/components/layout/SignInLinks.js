@@ -9,7 +9,7 @@ const SignInLinks = (props) => {
         <ul className={"right"}>
             <li><NavLink to={"/create"}>Add project</NavLink></li>
             <li><Link to={"/"} onClick={props.signOut} >Log out</Link></li>
-            <li><NavLink to={"/"} className={"btn btn-floating pink lighten-1"}>TD</NavLink></li>
+            <li><NavLink to={"/"} className={"btn btn-floating pink lighten-1"}>{props.profile.initials}</NavLink></li>
         </ul>
     )
 }
@@ -19,10 +19,6 @@ const mapDispatchToProps = dispatch => {
         signOut: () => dispatch(signOut())
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        initials: state.firestore.users
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInLinks);
+
+export default connect(null, mapDispatchToProps)(SignInLinks);
