@@ -1,6 +1,10 @@
 import React from "react";
+import moment from "moment";
+import 'moment/locale/pl';
 
-const Notifications = () => {
+const Notifications = (props) => {
+
+    const {notifications} = props;
 
     return (
         <div className={"section"}>
@@ -8,10 +12,17 @@ const Notifications = () => {
                 <div className="card-content">
                     <span className="card-title">Notifications</span>
                     <ul className={"notifications"}>
-                        <li>Notification</li>
-                        <li>Notification</li>
-                        <li>Notification</li>
-                        <li>Notification</li>
+                        {notifications && notifications.map(notification => {
+                            return (
+                                <li key={notification.id}>
+                                    <span className="pink-text">{notification.user} </span>
+                                    <span>{notification.content} </span>
+                                    <div className="grey-text note-date">
+                                        {moment(notification.time.toDate()).fromNow()}
+                                    </div>
+                                </li>
+                            )
+                        })}
                     </ul>
                 </div>
             </div>
